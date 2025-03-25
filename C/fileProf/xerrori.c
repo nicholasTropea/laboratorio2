@@ -590,29 +590,60 @@ int xsem_wait(sem_t *sem, int linea, char *file) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
+  Crea un processo figlio 'duplicando' il processo corrente.
+  Stampa eventuali messaggi d'errore + linea e file.
+
+  NOTA BENE: Padre e figlio vengono eseguiti in spazi di memoria separati.
+
+  ELEMENTI DIVERSI TRA PADRE E FIGLIO:
+    - Process ID (PID).
+    - Parent Process ID.
+    - Memory locks NON EREDITATI.
+    - I segnali pendenti del figlio sono azzerati.
+    - I semaphores adjustments NON SONO EREDITATI.
+  
+  ELEMENTI EREDITATI:
+    - File descriptor dei file aperti dal padre (con file offset ecc...)
+    - Lo stato degli oggetti pthread (attenzione sull'uso, si cerchi pthread_atfork())
 
 */
 pid_t xfork(int linea, char *file) {
   pid_t p = fork();
-  if(p<0) {
+
+  if(p < 0) {
     perror("Errore fork");
-    fprintf(stderr,"== %d == Linea: %d, File: %s\n",getpid(),linea,file);
+    fprintf(stderr, "== %d == Linea: %d, File: %s\n", getpid(), linea, file);
+
     exit(1);
   }
+
   return p;
 }
 
 
 /*
+  Sospende l'esecuzione del thread chiamante finché uno dei suoi figli non termina.
+  Chiamare wait() permette al sistema di liberare le risorse associate al figlio terminato.
 
+  NOTA BENE:
+    - In caso di figlio già terminato, wait() restituisce subito.
+    - Un figlio terminato rimane in stato "Zombie" fino a che non viene eseguita wait().
+    - (Guardare anche waitpid())
+  
+  VALORE DI <status>:
+    Se <status> != NULL, wait() salva informazioni sullo stato del processo terminato restituendole.
+    (Lista dei check su <status> nella pagina linux man 2 wait)
 */
 pid_t xwait(int *status, int linea, char *file) {
   pid_t p = wait(status);
-  if(p<0) {
+
+  if(p < 0) {
     perror("Errore wait");
-    fprintf(stderr,"== %d == Linea: %d, File: %s\n",getpid(),linea,file);
+    fprintf(stderr, "== %d == Linea: %d, File: %s\n", getpid(), linea, file);
+
     exit(1);
   }
+  
   return p;
 }
 
