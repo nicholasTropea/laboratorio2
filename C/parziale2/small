@@ -1,0 +1,28 @@
+# le righe che iniziano per # vengono scartate perchè
+# contengono caratteri diversi da :;-
+# le prossime righe vengono scartate perchè hanno un sola sequenza
+:::-::
+-
+::-
+-;;
+# le prossime righe vengono scartate perchè hanno due sequenze
+--::--
+;--;;;--
+;--;;;;;--::::
+# le prossime righe vengono scartate perché hanno più di tre sequenze
+::----:;;;:----:----;-----
+::----:;;;:----:----;-----:::::
+----:;;;:----:----;-----
+-----:-----:-----:::-----:-----:::
+# la prossima riga è la prima che viene accetatta e vale 3 4 5
+;;---;;;----:;:;;;;-----::::::::::::
+# le prossime due righe valgono 1 1 1
+# ma la seconda occorrenza non sarà inserita perché è un duplicato
+-:-:-
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-:-:-
+---------::::----:-----
+;;;--:----:--------
+-----:-:------
+-----:::-----:-----
+# la prossima riga è molto lunga ma contiene la terna 12 5 13
+------------::-----;;::;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::;;;-------------:

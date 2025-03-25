@@ -1,0 +1,33 @@
+Esercizio:
+    Scrivere uno script Python che prende in input sulla linea di comando il nome di due directory
+    src e dest. Lo script deve creare in dest una struttura organizzata per data di modifica
+    dei file presenti in src e nelle sue sottodirectory, seguendo le seguenti istruzioni:
+
+    1) Creazione della directory dest:
+        Se la directory dest esiste già, lo script deve terminare con exit code 1.
+
+        Se la directory dest non esiste, lo script deve crearla usando os.mkdir().
+
+    2) Organizzazione per data di modifica:
+        Per ogni file in src e nelle sue sottodirectory (ignorando i link simbolici),
+        lo script deve creare una sottodirectory in dest con il nome formato dalla
+        data di ultima modifica del file nel formato YYYY-MM-DD.
+
+        All'interno di ogni sottodirectory YYYY-MM-DD, creare un link simbolico al file originale.
+
+    3) Gestione dei file con lo stesso nome:
+        Se ci sono più file con lo stesso basename (il nome del file senza la directory)
+        nella stessa data, ad esempio src/file.txt e src/docs/file.txt,
+        nella sottodirectory dest/YYYY-MM-DD devono essere creati link con nomi unici:
+        file.txt, file.1.txt, file.2.txt, ecc.
+
+    4) Output:
+        Lo script deve stampare su stdout l'elenco dei file di src per cui è stato creato un link,
+        seguito dal nome del link creato, nel seguente formato:
+
+            /percorso/completo/del/file/in/src /percorso/completo/del/link/in/dest
+
+
+    5) Utilizzo del modulo time:
+        Lo script deve misurare il tempo impiegato per eseguire l'intera operazione e stampare il
+        tempo totale alla fine dell'esecuzione.

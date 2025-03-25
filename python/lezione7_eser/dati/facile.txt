@@ -1,0 +1,12 @@
+
+/home/runner/Indice/facile/leggimi /home/runner/Indice/facile_sol/l/leggimi
+/home/runner/Indice/facile/nord/no /home/runner/Indice/facile_sol/n/no
+/home/runner/Indice/facile/nord/dk /home/runner/Indice/facile_sol/d/dk
+/home/runner/Indice/facile/nord/fi /home/runner/Indice/facile_sol/f/fi
+/home/runner/Indice/facile/sud/fr /home/runner/Indice/facile_sol/f/fr
+/home/runner/Indice/facile/sud/est/gr /home/runner/Indice/facile_sol/g/gr
+/home/runner/Indice/facile/sud/est/it /home/runner/Indice/facile_sol/i/it
+/home/runner/Indice/facile/sud/est/sud/mt /home/runner/Indice/facile_sol/m/mt
+/home/runner/Indice/facile/sud/est/hr /home/runner/Indice/facile_sol/h/hr
+/home/runner/Indice/facile/sud/ovest/pt /home/runner/Indice/facile_sol/p/pt
+/home/runner/Indice/facile/sud/ovest/es /home/runner/Indice/facile_sol/e/es
