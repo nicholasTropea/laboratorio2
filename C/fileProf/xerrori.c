@@ -280,11 +280,14 @@ int xpthread_barrier_init(pthread_barrier_t *restrict barrier, const pthread_bar
 */
 int xpthread_barrier_destroy(pthread_barrier_t *barrier, int linea, char *file) {
   int e = pthread_barrier_destroy(barrier);
-  if (e!=0) {
+
+  if (e != 0) {
     xperror(e, "Errore pthread_barrier_destroy");
-    fprintf(stderr,"== %d == Linea: %d, File: %s\n",getpid(),linea,file);
+    fprintf(stderr, "== %d == Linea: %d, File: %s\n", getpid(), linea, file);
+
     pthread_exit(NULL);
   }
+  
   return e;
 }
 
