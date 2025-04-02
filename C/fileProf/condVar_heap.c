@@ -120,7 +120,7 @@ int main(int argc, char* argv[]) {
     // Crea un thread di tipo 1
     xpthread_create(&t[0], NULL, &tipo1, &h, LINEFILE);
 
-    // Crea n - 1 thread di tipo 2
+    // Crea nt - 1 thread di tipo 2
     for(int i = 1; i < nt; i++)
         xpthread_create(&t[i], NULL, &tipo2, &h, LINEFILE);
 
